@@ -39,4 +39,16 @@ public class ProductController {
                 .toUri();
         return ResponseEntity.created(location).build();
     }
+
+    @GetMapping(value = "Test/Products/Plus/{prixLimit}")
+    public List<Product> testDeRequetesMin(@PathVariable int prixLimit) {
+        return productDao.findByPrixGreaterThan(prixLimit);
+    }
+
+    /*
+    @GetMapping(value = "Test/Products/Moins/{prixLimit}")
+    public List<Product> testDeRequetesMax(@PathVariable int prixLimit) {
+        return productDao.chercherUnProduitPasCher(prixLimit);
+    }
+     */
 }

@@ -3,9 +3,17 @@ package com.icommerce.microcommerce.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 // On ne veut pas les afficher
-@JsonIgnoreProperties(value={"nom","prix"})
+//@JsonIgnoreProperties(value={"nom","prix"})
+@Entity
 public class Product {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String nom;
     private int prix;
@@ -20,6 +28,9 @@ public class Product {
         this.prix = prix;
         this.prixAchat = prixAchat;
 
+    }
+
+    public Product() {
     }
 
     public int getPrixAchat() {
